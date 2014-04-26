@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	div#wrap
+		header 
+			h1 PRINT IN PROGRESS
+		div#content
+			p.progres Your photo is being printed now. You can collect your photo at the printer in a bit
+			div.social
+				a.fb(href='http://facebook.com') facebook
+				a.tt(href='http://twiteer.com') twiteer
+				a.feedback(href='#') feedback
+	footer
+		a#select(href='javascript:void(0);') CLICK TO CHOOSE A PHOTO
+	script(type='text/javascript', src='js/jquery.min.js')
+	script(type='text/javascript', src='js/printopt.js')

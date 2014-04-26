@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	div#wrap.main
+		header
+			h1 
+				img(src='./img/instantly.png')
+		div#content
+			form.login-form(action='/login', method='POST', role='FORM')
+				div.form-grp
+					input(type='hidden', name='username', value='admin')
+					label(for='pwd') Enter Password
+					if !message
+						input#pwd.form-ctrl(name='password', type='Password' placeholder='Enter Password')
+					else
+						input#pwd.form-ctrl.err(name='password', type='Password' placeholder='Enter Password')
+					button.btn(type='submit') Login
+	footer
+		a(href='/how-it-work') How it work
+

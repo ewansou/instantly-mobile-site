@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	div#wrap
+		header 
+			h1 PHOTO SELECTION
+		div#content
+			form#select-photo(action='upload', method = 'post', enctype='multipart/form-data' style='display:none')
+				fieldset 
+					legend Choose a File to Upload
+					div
+						label
+						div.controls
+							input#choose-file(type='file', name='file',accept="image/*")
+	footer
+		a#select(href='javascript:void(0);') CLICK TO CHOOSE A PHOTO
+	script(type='text/javascript', src='js/jquery.min.js')
+	script(type='text/javascript', src='js/selectfile.js')

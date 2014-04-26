@@ -1,0 +1,35 @@
+extends layout
+
+block content
+	div#wrap
+		header 
+			h1 PHOTO SELECTION
+		div#content
+			form#print-form(action='print', method = 'post', enctype='multipart/form-data')
+				input(type='hidden', value='#{src}', name='src')
+				div.thumbnail
+					img(src="#{src}" width=320)
+				div.print-opt
+					p Please select the size of your photo printout
+					div
+						div.checkbx 
+							label 4R
+								input(type='checkbox', name='type', value='4r')
+						div.checkbx 
+							label Half-4R
+								input(type='checkbox', name='type', value='half-4r')
+						div.checkbx 
+							label Wallet
+								input(type='checkbox', name='type', value='wallet')
+					p Do you wish to see your photo appear on the photo gallery? Please note that if you select Yes, your photo will appear on the event photo gallery and everyone will be able to see it.
+					div.radio 
+						label YES
+							input(type='radio', name='isAppear' value='true') 
+
+						label NO
+							input(type='radio', name='isAppear' value='false')
+
+	footer
+		a#print(href='javascript:void(0);') CLICK TO CHOOSE A PHOTO
+	script(type='text/javascript', src='js/jquery.min.js')
+	script(type='text/javascript', src='js/printopt.js')

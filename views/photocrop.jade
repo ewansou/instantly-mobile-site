@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	link(href='stylesheets/croppic.css', rel='stylesheet')
+	div#wrap
+		header 
+			h1 CROP
+			//- div.crop-image
+			//- 	img#target(src='#{src}')
+			
+			//- form#crop(role='form', method='post', action='crop')
+			//- 	input(type='hidden', name='x1', id='x1')
+			//- 	input(type='hidden', name='y1', id='y1')
+			//- 	input(type='hidden', name='x2', id='x2')
+			//- 	input(type='hidden', name='y2', id='y2')
+			//- 	input(type='hidden', name='w', id='w')
+			//- 	input(type='hidden', name='h', id='h')
+			//- 	input(type='hidden', name='name', value='#{name}')
+		div.crop-image
+			div#myId
+	footer
+		a#upload-crop(href="javascript:void(0);") CLICK TO CHOOSE A PHOTO
+		a#negative-crop(href="javascript:void(0);" style="display:none") NEXT, print option
+	script(type='text/javascript', src='js/jquery.min.js')
+	script(type='text/javascript', src='js/croppic.js')
+	script(type='text/javascript', src='js/crop-02.js')
