@@ -1,7 +1,7 @@
 extends layout
 
 block content
-	link(href='stylesheets/croppic.css', rel='stylesheet')
+	link(href='stylesheets/jquery.cropbox.css', rel='stylesheet')
 	div#wrap
 		header 
 			h1 CROP
@@ -16,11 +16,19 @@ block content
 			//- 	input(type='hidden', name='w', id='w')
 			//- 	input(type='hidden', name='h', id='h')
 			//- 	input(type='hidden', name='name', value='#{name}')
-		div.crop-image
-			div#myId
+		//- div.crop-image
+		//- 	div#myId
+		img.cropimage(alt="" src="#{src}" cropwidth="200" cropheight="200")
+		form#crop(role='form', method='post', action='crop')
+			input(type='hidden', name='x', id='x')
+			input(type='hidden', name='y', id='y')
+			input(type='hidden', name='w', id='w')
+			input(type='hidden', name='h', id='h')
+			input(type='hidden', name='name', value='#{name}')
 	footer
 		a#upload-crop(href="javascript:void(0);") CLICK TO CHOOSE A PHOTO
 		a#negative-crop(href="javascript:void(0);" style="display:none") NEXT, print option
 	script(type='text/javascript', src='js/jquery.min.js')
-	script(type='text/javascript', src='js/croppic.js')
-	script(type='text/javascript', src='js/crop-02.js')
+	script(type='text/javascript', src='js/hammer.js')
+	script(type='text/javascript', src='js/jquery.cropbox.js')
+	script(type='text/javascript', src='js/crop-03.js')

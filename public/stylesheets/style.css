@@ -184,3 +184,4 @@ figure{
 .cropImgWrapper{border: 1px dotted #ccc;}
 .croppedImg{width: 320px;}
 .cropControls i.cropControlCrop{display: none;}
+.cropFrame{margin: 10px auto; display: block !important;}

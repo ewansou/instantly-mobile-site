@@ -5,7 +5,7 @@ module.exports = function (app, passport) {
 	
 	app.post('/login', passport.authenticate('local', { failureRedirect: '/', failureFlash: true}),
 	    function(req, res) {
-	        res.redirect('/photo-crop');
+	        res.redirect('/photo-selection');
 	    }
 	);
 	app.get('/photo-selection', ensureAuthenticated, function(req, res){
@@ -13,8 +13,9 @@ module.exports = function (app, passport) {
 	});
 
 	app.get('/photo-print', ensureAuthenticated, function(req, res){
-		var src = req.flash('src');
-		res.render('photoprint', { title: 'Photo Print', src: src });
+		var src = req.flash('src'),
+			name = req.flash('name');
+		res.render('photoprint', { title: 'Photo Print', src: src, name: name});
 	});
 
 	app.get('/photo-crop', ensureAuthenticated, function(req, res){

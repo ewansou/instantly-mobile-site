@@ -3,12 +3,13 @@ extends layout
 block content
 	div#wrap
 		header 
-			h1 PHOTO SELECTION
+			h1 PRINTING OPTIONS
 		div#content
 			form#print-form(action='print', method = 'post', enctype='multipart/form-data')
 				input(type='hidden', value='#{src}', name='src')
+				input(type='hidden', value='#{name}', name='name')
 				div.thumbnail
-					img(src="#{src}" width=320)
+					img(src="#{src}", width=300)
 				div.print-opt
 					p Please select the size of your photo printout
 					div
@@ -30,6 +31,6 @@ block content
 							input(type='radio', name='isAppear' value='false')
 
 	footer
-		a#print(href='javascript:void(0);') CLICK TO CHOOSE A PHOTO
+		a#print(href='javascript:void(0);') Click to print
 	script(type='text/javascript', src='js/jquery.min.js')
 	script(type='text/javascript', src='js/printopt.js')

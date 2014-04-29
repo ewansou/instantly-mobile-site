@@ -4,6 +4,10 @@ var config = require('../config/development'),
 dropbox = {
 	upload : function (sFilePath, aImgTypes){
 
+		if( typeof aImgTypes === 'string' ) {
+		    aImgTypes = [ aImgTypes ];
+		}
+
 		aImgTypes.forEach( function (img_type) {
 
 			var dropboxClient = new DropboxClient(config.dropbox.consumer_key, config.dropbox.consumer_secret, 

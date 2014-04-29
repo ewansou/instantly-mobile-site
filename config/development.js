@@ -1,10 +1,7 @@
 config = {
 	pwd: '123123',
 	callback: {
-		host: 'localhost',
-		port: 3700,
-		path: '/test',
-		url: 'http://instagram-real-time.herokuapp.com/'
+		url: 'http://instagram-real-time.herokuapp.com:3700/test'
 	},
 	dropbox: {
 		/* production */
@@ -24,6 +21,14 @@ config = {
 	img: {
 		captionText: 'instantly-mobile',
 		belongTo: 'instantly-mobile'
+	},
+	mysql: {
+		host     : 'localhost',
+		user     : 'root',
+		password : '123456',
+		port: '3306',
+		charset: 'utf-8',
+		database: 'instantly'
 	}
 }
 module.exports = config;
