@@ -75,24 +75,31 @@ module.exports = function (app) {
 				// console.log('uploaded successfully!');
 				// console.log(data);
 				// 3.notify to instagram-real-time site
-				if (htParam.isAppear) {
+				if (htParam.isAppear === 'true') {
+					console.log(htParam.isAppear)
 					notify(filename);
 				}
 
 				//4. save into db
 				var imgModel = require('../model/image');
-				imgModel.insert({
+				var insertData = {
 					username: config.img.captionText,
 					caption: config.img.belongTo,
-					url: [config.s3.image_folder, filename].join('')
-				})
+					url: [config.s3.image_folder, filename].join(''),
+					isShowed: htParam.isAppear === 'true' ? 1 : 0
+				};
 
+				imgModel.insert(insertData, function(err, rows, fields) {
+					if (err) {
+						console.log(err);
+					}
+				});
 			}
 		});
-		
-
 		// 5.at last, redirect to next step
 		res.redirect('/print-progress');
+
+		
 	});
 
 	function notify (filename) {
