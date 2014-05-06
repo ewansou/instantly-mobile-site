@@ -1,17 +1,20 @@
-$( function () {
+$(function () {
       $( '.cropimage' ).each( function () {
         var image = $(this),
-            cropwidth = 300,
-            cropheight = 300;
+            cropwidth = 320,
+            cropheight = 400;
 
-          image.cropbox( {width: cropwidth, height: cropheight, showControls: 'always' } )
+          var x = image.cropbox( {width: cropwidth, height: cropheight, showControls: 'always', zoom : 20} )
             .on('cropbox', function( event, results, img ) {
               $('#x').val(results.cropX);
               $('#y').val(results.cropY);
               $('#w').val(results.cropW);
               $('#h').val(results.cropH);
             });
+
       } );
+
+      //$(".cropZoomIn").trigger('click');
 
       $("#upload-crop").click(function () {
         showLoader();
@@ -21,4 +24,4 @@ $( function () {
         $(".backdrop").removeClass('hide').addClass('in');
       }
 
-} );
+});
