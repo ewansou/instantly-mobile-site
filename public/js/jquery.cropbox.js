@@ -171,7 +171,7 @@
       fit: function () {
         var widthRatio = this.options.width / this.width,
           heightRatio = this.options.height / this.height;
-        this.minPercent = (widthRatio >= heightRatio) ? widthRatio : heightRatio;
+        this.minPercent = (widthRatio >= heightRatio) ? widthRatio * 1.2 : heightRatio * 1.2;
       },
 
       setCrop: function (result) {
@@ -187,7 +187,7 @@
       zoom: function(percent) {
         var old_percent = this.percent;
 
-        this.percent = Math.max(this.minPercent, Math.min(this.options.maxZoom, percent));
+        this.percent = Math.max(this.minPercent , Math.min(this.options.maxZoom, percent));
         this.img_width = Math.ceil(this.width * this.percent);
         this.img_height = Math.ceil(this.height * this.percent);
 
