@@ -14,7 +14,11 @@ $( function () {
       } );
 
       $("#upload-crop").click(function () {
+        showLoader();
         $("#crop").submit();
       });
+      function showLoader () {
+        $(".backdrop").removeClass('hide').addClass('in');
+      }
 
 } );

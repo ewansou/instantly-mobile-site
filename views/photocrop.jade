@@ -27,6 +27,8 @@ block content
 			input(type='hidden', name='name', value='#{name}')
 	footer
 		a#upload-crop(href="javascript:void(0);") NEXT: Printing Option 
+	div.backdrop.fade.hide
+		img(src='/img/loader.gif')
 	script(type='text/javascript', src='js/jquery.min.js')
 	script(type='text/javascript', src='js/hammer.js')
 	script(type='text/javascript', src='js/jquery.cropbox.js')

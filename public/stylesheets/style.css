@@ -185,3 +185,33 @@ figure{
 .croppedImg{width: 320px;}
 .cropControls i.cropControlCrop{display: none;}
 .cropFrame{margin: 10px auto; display: block !important;}
+
+.backdrop{
+    background-color: #000000;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10400;
+    text-align: center;
+}
+.backdrop img{
+    position: absolute;
+    margin-top: -10px;
+    top: 50%;
+    left: 50%;
+    margin-left: -28px;
+}
+.fade{
+    opacity: 0;
+    transition: opacity 0.15s linear 0s;
+}
+.fade.in {
+    opacity: 0.8;
+}
+.hide{
+    display: none;
+    height: 0;
+    width: 0;
+}

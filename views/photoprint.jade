@@ -15,7 +15,7 @@ block content
 					div
 						div.checkbx 
 							label 4R
-								input(type='checkbox', name='type', value='_4r', checked='checked')
+								input(type='checkbox', name='type', value='_4r')
 						div.checkbx 
 							label Half-4R
 								input(type='checkbox', name='type', value='half4r')
@@ -31,6 +31,8 @@ block content
 							input(type='radio', name='isAppear' value='false', checked='checked')
 
 	footer
-		a#print(href='javascript:void(0);') Click to print
+		a#print(href='javascript:void(0);') Click to print 
+	div.backdrop.fade.hide
+		img(src='/img/loader.gif')
 	script(type='text/javascript', src='js/jquery.min.js')
 	script(type='text/javascript', src='js/printopt.js')
