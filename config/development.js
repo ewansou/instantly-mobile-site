@@ -24,11 +24,11 @@ config = {
 		belongTo: 'instantly-mobile'
 	},
 	mysql: {
-		host     : 'localhost',
-		user     : 'root',
-		password : '123456',
-		port: '3306',
-		database: 'instantly'
+	  host: 'us-cdbr-east-05.cleardb.net',
+	  user     : 'b3039ab65993fb',
+	  password : 'cca7b08f',
+	  port: '3306',
+	  database: 'heroku_3f325657610cb96'
 	}
 }
 module.exports = config;
