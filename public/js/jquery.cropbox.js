@@ -171,7 +171,7 @@
       fit: function () {
         var widthRatio = this.options.width / this.width,
           heightRatio = this.options.height / this.height;
-        this.minPercent = (widthRatio >= heightRatio) ? widthRatio * 1.2 : heightRatio * 1.2;
+        this.minPercent = (widthRatio >= heightRatio) ? widthRatio : heightRatio;
       },
 
       setCrop: function (result) {
