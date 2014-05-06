@@ -174,10 +174,10 @@ figure{
     height: 320px;
 }
 #cropContainerHeader {
-            width: 200px;
-            height: 150px;
-            position:relative; /* or fixed or absolute */
-        }
+    width: 200px;
+    height: 150px;
+    position:relative; /* or fixed or absolute */
+}
 .crop-image:after{
     clear:both;
 }
