@@ -35,9 +35,9 @@ module.exports = function (app) {
 	            console.log(filePath);
 	            gm(targetPath).autoOrient().write(targetPath, function () {
 	            	 // console.log("Upload completed!");
-		            fs.unlink(tempPath, function () {
-			            if (err) throw err;
-			        });
+		         	//  fs.unlink(tempPath, function () {
+			        //     if (err) throw err;
+			        // });
 			        req.flash('src', ['upload/', filename].join(''));
 			        req.flash('name', filename);
 			        
