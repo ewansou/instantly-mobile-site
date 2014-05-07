@@ -30,6 +30,9 @@ module.exports = function (app) {
 	            if (err) {
 	            	throw err;
 	            }
+	            gm = require('gm').subClass({ imageMagick: true });
+	            gm(targetPath).autoOrient();
+	            gm(targetPath).rotate('#fff', 360);
 	            // console.log("Upload completed!");
 	            fs.unlink(tempPath, function () {
 		            if (err) throw err;
