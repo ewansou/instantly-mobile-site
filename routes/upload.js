@@ -31,16 +31,19 @@ module.exports = function (app) {
 	            	throw err;
 	            }
 	            gm = require('gm').subClass({ imageMagick: true });
-	            gm(targetPath).autoOrient();
-	            gm(targetPath).rotate('#fff', 360);
-	            // console.log("Upload completed!");
-	            fs.unlink(tempPath, function () {
-		            if (err) throw err;
-		        });
-		        req.flash('src', ['upload/', filename].join(''));
-		        req.flash('name', filename);
-		        
-	            res.redirect('/photo-crop');
+	            //gm(targetPath).autoOrient();
+	            console.log(filePath);
+	            gm(targetPath).autoOrient().write(targetPath, function () {
+	            	 // console.log("Upload completed!");
+		            fs.unlink(tempPath, function () {
+			            if (err) throw err;
+			        });
+			        req.flash('src', ['upload/', filename].join(''));
+			        req.flash('name', filename);
+			        
+		            res.redirect('/photo-crop');
+	            });
+	           
 	        });
 	});
 
