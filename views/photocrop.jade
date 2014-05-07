@@ -18,7 +18,8 @@ block content
 			//- 	input(type='hidden', name='name', value='#{name}')
 		//- div.crop-image
 		//- 	div#myId
-		img.cropimage(alt="" src="#{src}" cropwidth="200" cropheight="200")
+		img.cropimage(alt="" src="#{src}")
+		p #{src}
 		form#crop(role='form', method='post', action='crop')
 			input(type='hidden', name='x', id='x')
 			input(type='hidden', name='y', id='y')
