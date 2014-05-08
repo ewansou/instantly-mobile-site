@@ -8,6 +8,9 @@
 		showLoader();
 		$('#print-form').submit();
 	});
+	$(".back").click(function (){
+		$("#returncrop").submit();
+	});
 	function showLoader () {
         $(".backdrop").removeClass('hide').addClass('in');
       }

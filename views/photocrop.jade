@@ -3,8 +3,10 @@ extends layout
 block content
 	link(href='stylesheets/jquery.cropbox.css', rel='stylesheet')
 	div#wrap
-		header 
+		header
 			h1 CROP
+			a.back(href="/photo-selection")
+				img(src="img/backbutton.png", height="44")
 		img.cropimage(alt="" src="#{src}")
 		form#crop(role='form', method='post', action='crop')
 			input(type='hidden', name='x', id='x')
@@ -14,7 +16,7 @@ block content
 			input(type='hidden', name='name', value='#{name}')
 	footer
 		a#upload-crop(href="javascript:void(0);") NEXT: Printing Option 
-	div.backdrop.fade.hide
+	div.backdrop.fade.in
 		img(src='/img/loader.gif')
 	script(type='text/javascript', src='js/jquery.min.js')
 	script(type='text/javascript', src='js/hammer.js')

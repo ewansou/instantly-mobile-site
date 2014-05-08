@@ -4,6 +4,8 @@ block content
 	div#wrap
 		header 
 			h1 PHOTO SELECTION
+			a.back(href="/")
+				img(src="img/backbutton.png", height="44")
 		div#content
 			form#select-photo(action='upload', method = 'post', enctype='multipart/form-data' style='display:none')
 				fieldset 

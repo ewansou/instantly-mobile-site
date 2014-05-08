@@ -4,7 +4,12 @@ block content
 	div#wrap
 		header 
 			h1 PRINTING OPTIONS
+			a.back(href="javascript:void(0);")
+				img(src="img/backbutton.png", height="44")
 		div#content
+			form#returncrop(action='/return-crop', method='post')
+				input(type='hidden', value='#{oldsrc}', name='oldsrc')
+				input(type='hidden', value='#{oldname}', name='oldname')
 			form#print-form(action='print', method = 'post', enctype='multipart/form-data')
 				input(type='hidden', value='#{src}', name='src')
 				input(type='hidden', value='#{name}', name='name')

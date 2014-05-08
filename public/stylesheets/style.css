@@ -119,6 +119,7 @@ figure{
 
 .thumbnail{
     text-align: center;
+    padding-top: 5px;
 }
 .thumbnail img{
     height: auto;
@@ -214,4 +215,13 @@ figure{
     display: none;
     height: 0;
     width: 0;
+}
+
+.back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 44px;
+    top: 5px;
+    left: 5px;
 }

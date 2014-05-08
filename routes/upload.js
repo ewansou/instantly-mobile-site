@@ -13,6 +13,7 @@ function generateFileName (tempPath){
 }
 
 function getFinalName (fileName, isAppear) {
+	fileName = fileName.substring(8);
 	var additional = isAppear === 'true' ? 'yes' : 'no';
 	return [path.basename(fileName, path.extname(fileName)), 
 	'-', additional, path.extname(fileName)].join('');
@@ -30,14 +31,14 @@ module.exports = function (app) {
 	            if (err) {
 	            	throw err;
 	            }
-	            gm = require('gm').subClass({ imageMagick: true });
-	            //gm(targetPath).autoOrient();
+	            gm = require('gm');
+	            //  fs.unlink(tempPath, function () {
+		        //     if (err) throw err;
+		        // });
 	            console.log(filePath);
-	            gm(targetPath).autoOrient().write(targetPath, function () {
+	            gm(filePath).autoOrient().write(filePath, function () {
 	            	 // console.log("Upload completed!");
-		         	//  fs.unlink(tempPath, function () {
-			        //     if (err) throw err;
-			        // });
+		         	
 			        req.flash('src', ['upload/', filename].join(''));
 			        req.flash('name', filename);
 			        
@@ -51,23 +52,32 @@ module.exports = function (app) {
 		var htParam = req.body;
 		// console.log(htParam)
 		gm = require('gm').subClass({ imageMagick: true }),
-		filePath = ['./public/upload/', req.body.name].join('');
+		filePath = ['./public/upload/', req.body.name].join(''),
+		croppedFile = ['./public/upload/', 'cropped-',  req.body.name ].join('');
 		gm(filePath).crop(
 			htParam.w, 
 			htParam.h, 
 			htParam.x, 
 			htParam.y
-		).resize(640,640).write(filePath, function(e){
+		).resize(640,640).write(croppedFile, function(e){
 			// console.log(e);
 			var time = (new Date()).getTime();
-			req.flash('src', ['upload/', req.body.name, '?v=', time].join(''));
-			req.flash('name', req.body.name);
+			req.flash('src', ['upload/','cropped-', req.body.name, '?v=', time].join(''));
+			req.flash('name', 'cropped-' + req.body.name);
+			req.flash('oldsrc', 'upload/' + req.body.name);
+			req.flash('oldname', req.body.name);
 			res.redirect('/photo-print');
 		});
 		
 	});
 
-	
+	app.post('/return-crop', function (req, res) {
+		var htParam = req.body,
+		filename = htParam.oldname;
+		req.flash('src', ['upload/', filename].join(''));
+        req.flash('name', filename);
+        res.redirect('/photo-crop');
+	});
 
 	app.post('/print', function (req, res) {
 		var 

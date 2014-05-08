@@ -23,7 +23,7 @@ app.use(express.urlencoded());
 app.use(require('connect-multiparty')());
 app.use(express.methodOverride());
 app.use( express.cookieParser() );
-app.use(express.session({ secret: 'thisismysecret' })); // session secret
+app.use(express.session({ secret: 'thisismysecret', cookie:{maxAge: 60 * 60 * 1000} })); // session secret
 app.use(passport.initialize());
 app.use(passport.session());
 
