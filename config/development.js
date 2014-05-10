@@ -1,5 +1,5 @@
 config = {
-	pwd: '123123',
+	pwd: 'ewanbirthday',
 	callback: {
 		// url: 'http://localhost:3700/instantly-callback'
 		url: 'http://instagram-real-time.herokuapp.com/instantly-callback'
