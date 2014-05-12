@@ -1,5 +1,8 @@
 config = {
 	pwd: 'ewanbirthday',
+	//for cookie time out
+	// 2 hours
+	maxAge: 2*60*60*1000,
 	callback: {
 		// url: 'http://localhost:3700/instantly-callback'
 		url: 'http://instagram-real-time.herokuapp.com/instantly-callback'
